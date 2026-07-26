@@ -15,8 +15,7 @@ def init_seats(event):
   localStorage.clear()
   localStorage.setItem('seatsStr', '')
   localStorage.setItem('totalSeats', str(TOTAL_SEATS))
-  output.innerText = "Available seats: " + str(TOTAL_SEATS)
-                                               
+  output.innerText = "Available seats: " + str(TOTAL_SEATS)                                             
 def load_seats():
   seats_str = localStorage.getItem('seatsStr')
   total_seats = localStorage.getItem('totalSeats')
@@ -71,5 +70,4 @@ reset_btn.addEventListener('click', init_seats_proxy)
 document.addEventListener("DOMContentLoaded", load_seats_proxy)
 body = document.getElementsByTagName("body")[0]
 body.addEventListener('click', set_seat_proxy)
-window.onload = init_seats_proxy
 window.setInterval(load_seats_proxy, 2000)
