@@ -1,0 +1,43 @@
+from pyscript import fs
+from js import document
+import csv
+from pathlib import Path
+import random
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+import pandas as pd
+
+data = []
+x_date = []
+output = document.getElementById("output")
+# Randomly generate a unique ID
+def get_id():
+  numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  random.shuffle(numbers)
+  input_id = ''.join(map(str, numbers))
+  return input_id
+# load CSV file
+id = get_id()
+await fs.mount("/local", id=id)
+x = pd.read_csv("/local/AQI.csv", encoding='utf-8')
+print(type(x))
+output.innerText = x
+# read data
+fpath = Path(mpl.get_data_path(), "/local/mingliu.ttc")
+for i in range(x.shape[0]):
+  if x.iloc[i, 1] == '中山國小':
+    data.append(x.iloc[i, 6])
+    temp = [str(x.iloc[i, 3]), str(x.iloc[i, 4]), str(x.iloc[i, 5])]
+    x_date.append('-'.join(temp))
+# plot
+fig, ax = plt.subplots()
+id = get_id()
+aqi = pd.Series(data, index=x_date)
+aqi.plot()
+ax.set_title('台中市中山國小空氣品質指標', font=fpath)
+ax.set_xlabel('日期', font=fpath, fontsize=8)
+ax.tick_params(axis='x', rotation=45)
+ax.set_ylabel('總懸浮微粒_μg/m3', font=fpath, fontsize=12)
+plt.show()
+await fs.sync('/local')
+await fs.unmount('/local')

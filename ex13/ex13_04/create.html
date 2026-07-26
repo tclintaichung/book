@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="create.html">New Inventory</a>
+    <a href="maintain.html">Inventory Maintenance</a>
+    <a href="about.html">About</a>
+  </nav>  
+  <h1>Food or drink can be added</h1>
+  <div class="create-div">
+    <div>
+      <label for="name">Food/drink Name:</label>
+      <input type="text" id="name" name="name"  />
+    </div>
+    <div>
+      <label for="description">Description:</label><br />
+      <textarea id="description" name="description"></textarea>
+    </div>
+    <div>
+      <label for="expiry-date">Expiry Date:</label>
+      <input type="date" id="expiry-date" name="expiry-date"  />
+    </div>
+    <div>
+      Storage Place:
+      <input type ="radio" id="pantry" name="place" value="pantry"/>
+      <label for="pantry" >pantry</label>
+      <input type ="radio" id="refrigerator" name="place" checked value="refrigerator" />
+      <label for="refrigerator">refrigerator</label>
+    </div>
+  </div>       
+  <div>
+    <button type="submit" id="create-button">Add</button>
+  </div> 
+  <div id="create-output"></div>
+  <script src="ex13.04.js"></script>
+</body>
+</html>

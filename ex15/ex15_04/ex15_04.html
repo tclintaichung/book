@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Air Conditioner Power Conversion</title>
+	<link rel="stylesheet" href="./styles.css">
+	<script src="./lib/ex15_04.js"></script>
+</head>
+<body>
+	<h1>Air Conditioner Power</h1>
+	<h2>-- Ton to Btu/kW --</h2>
+	<div>
+		<div>
+			Nation:
+			<input type="radio" id="check1" name="nation" value="1" checked>
+			<label for="check1">US</label>
+			<input type="radio" id="check2" name="nation" value="2" unchecked>
+			<label for="check2">Japan</label>
+			<input type="radio" id="check3" name="nation" value="3" unchecked>
+			<label for="check3">Taiwan</label>
+		</div>
+		<div>
+			<input type="number" id="tons" value="1">
+			<label for="tons">Tons</label>
+		</div>
+		<div>
+			<p id="result"></p>
+		</div>
+		<div>
+			<p>
+				In US, 1 ton = 12000 Btu or 3.517 kW<br/>
+				In Japan, 1 ton = 10000 Btu or 2.93 kW<br/>
+				In Taiwan, 1 ton = 8000 Btu or 2.34 kW
+			</p>
+		</div>
+	</div>
+	<script>
+		const tons = document.getElementById('tons');
+		const result = document.getElementById('result'); 
+		const nations = document.getElementsByName('nation');
+		window.onload = function() {
+			Module.onRuntimeInitialized = function() {
+				result.textContent = "Module is ready!";
+			}
+		}
+		function conversion(e) {
+			const tons = document.getElementById('tons').value;
+			const nation = nations[0].checked ? 1 : nations[1].checked ? 2 : 3;
+			const length = 2;
+			const factorPtr = Module._malloc(length*Module.HEAPF32.BYTES_PER_ELEMENT);
+			Module._get_standard(nation, factorPtr);
+			const resultArray = Module.HEAPF32.subarray(factorPtr >> 2, 				(factorPtr >> 2) + length);
+			const btu = tons*resultArray[0];
+			const kw =  tons*resultArray[1];
+			result.textContent = `${btu.toFixed(0)} Btu (${kw.toFixed(3)} kW)`;
+			Module._free(factorPtr);
+		}
+		tons.addEventListener('input', conversion);
+		nations.forEach(nation => {
+			nation.addEventListener('change', conversion);
+		});
+	</script>
+</body>
+</html>

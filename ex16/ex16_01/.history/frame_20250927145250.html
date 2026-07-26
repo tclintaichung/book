@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parabola curves</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="300px" height="300px"></canvas>
+    <script>
+        const a = 3;
+        const b = -6;
+        const c = 4;
+        const colors = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FFA500", "#FFFFFF"];
+        const myCanvas = document.getElementById("myCanvas");
+        const ctx = myCanvas.getContext("2d");
+        myCanvas.width = window.innerWidth * 0.8;
+        myCanvas.height = window.innerHeight * 0.8;
+        const point_x = [];
+        const point_y1 = [];
+        const point_y2 = [];
+        const scale = 2.;
+
+        frame(0, myCanvas.width, 0, myCanvas.height);    
+       
+        function frame(x_min, x_max, y_min, y_max) {
+            const center_x = (x_min + x_max) / 2; 
+            const center_y = (y_min + y_max) / 2;
+            ctx.beginPath();
+            ctx.moveTo(x_min, center_y);
+            ctx.lineTo(x_max, center_y);  
+            ctx.moveTo(center_x, y_min);
+            ctx.lineTo(center_x, y_max);
+            ctx.strokeStyle = colors[0];
+            ctx.lineWidth = 1;
+            ctx.stroke();
+            for (let i = x_min; i <= x_max; i +=20) {
+                ctx.fillText(String(i - center_x), i, center_y + 10);
+            }
+            for (let i = y_min; i <= y_max; i += 20) {
+                ctx.fillText(String(i - center_y), center_x - 20, y_max - i ) ;
+            }
+        }
+   </script>     
+</body>
+</html>

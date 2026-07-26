@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.10)
+project(ex08_03)
+add_executable(${PROJECT_NAME} ex08_03.cpp)
+add_library(mylib SHARED src/series.cpp)
+target_include_directories(${PROJECT_NAME} PRIVATE include)
+target_include_directories(mylib PRIVATE include)
+target_link_libraries(${PROJECT_NAME} PRIVATE mylib)

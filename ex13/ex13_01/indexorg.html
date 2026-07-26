@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Navigation Example</title>
+</head>
+<body>
+<h1>Home</h1>
+  <nav>
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./hi.html">Hi</a></li>
+      <li><a href="./about.html">About</a></li>
+    </ul>
+  </nav>
+  <p id="food-info"></p>
+  <script>
+    // fetch('/api/food')
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     console.log(data);
+    //     const foodInfo = document.getElementById('food-info');
+    //     foodInfo.innerHTML = `Food Name: ${data.name}, Amount: ${data.amount}`; 
+    //   });
+    // Example of a POST request using fetch
+const url = '/api/info'; // Replace with your API endpoint
+const data = {
+  name: 'John Doe',
+  email: 'john.doe@example.com',
+  message: 'Hello, this is a test message!'
+};
+
+// fetch(url, {
+//   method: 'POST', // HTTP method
+//   headers: {
+//     'Content-Type': 'application/json' // Specify JSON content type
+//   },
+//   body: JSON.stringify(data) // Convert data to JSON string
+// })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json(); // Parse JSON response
+  })
+  .then(result => {
+    console.log('Success:', result); // Handle success
+  })
+  .catch(error => {
+    console.error('Error:', error); // Handle errors
+  });
+async function sendPostRequest() {
+try {
+const response = await fetch(url, {
+method: "POST", // Specify HTTP method
+headers: {
+"Content-Type": "application/json", // Set content type
+"Accept": "application/json"
+},
+body: JSON.stringify(data) // Convert data to JSON string
+});
+
+// Check if response is successful
+if (!response.ok) {
+throw new Error(`HTTP error! Status: ${response.status}`);
+}
+
+// Parse and log JSON response
+const result = await response.json();
+console.log("Response:", result);
+} catch (error) {
+console.error("Error:", error.message);
+}
+}
+
+// Call the function
+sendPostRequest();
+</script>
+</body>
+</html>

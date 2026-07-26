@@ -1,0 +1,1 @@
+em++ polyline.cpp polyline_bindings.cpp -o polyline.js -s MODULARIZE -s EXPORT_NAME="MyModule" -lembind --bind

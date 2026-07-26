@@ -1,0 +1,14 @@
+div {
+  border: 1px solid rgb(217, 173, 173);
+  border-radius: 3px;
+  background-color: rgb(213, 247, 213);
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  gap: 10px;
+  margin: 2px;
+  padding: 3px;
+}
+p {
+  text-align: center;
+}

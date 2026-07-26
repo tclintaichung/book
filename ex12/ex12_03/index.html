@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example 12_03</title>  
+  <link rel="stylesheet" type="" href="styles.css">
+</head>
+<body>
+  <h1>Please enter your profile</h1>
+  <form>
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value=""><br/>
+    </div>
+    <div>
+      <label for="status">Status:</label>
+      <label for="student">Student</label>
+      <input type="radio" id="student" name="status" value="student" checked>
+      <label for="teacher">Teacher</label>
+      <input type="radio" id="teacher" name="status" value="teacher"><br/>
+      <label for="staff">Staff</label>
+      <input type="radio" id="staff" name="status" value="staff"><br/>
+    </div>
+    <div>
+      <label for="birthday">Birthday:</label>
+      <input type="date" id="birthday" value=""><br/>
+    </div>
+    <div>
+      <input type="submit" id="submit" value="submit">
+      <input type="reset" id="reset" value="reset">
+    </div>   
+  </form>
+  <div>
+    <p id="profile"></p>
+  </div>
+  <script defer src="index.js"></script>
+</body>
+</html>

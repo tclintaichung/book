@@ -1,0 +1,31 @@
+* {
+  margin: 5px;
+  padding: 10px;
+}
+h1{
+  position: relative;
+  left:620px;
+}
+label {
+  font-size: 2rem;
+  font-weight: bold;
+}
+p{
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+input{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+button{
+  font-weight: bold;
+  font-size: 1.2rem;
+  background-color: cyan;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+button:hover{
+  background-color: rgb(255, 0, 0);
+}

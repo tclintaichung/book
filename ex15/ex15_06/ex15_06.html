@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polyline</title>
+    <script src="./lib/polyline.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Compute length of Polyline</h1>
+    <div>
+        <div>
+            <label for="x">x: </label>
+            <input type="text" id="x">
+            <label for="y">y: </label><br>            
+            <input type="text" id="y"><br>
+        </div>
+    </div>
+    <div>
+        <div>
+            <button id="btn-1">Create Points</button>
+        </div>
+        <div>
+            <button id="btn-2">Compute Length</button>
+        </div>
+    </div>
+    <div>
+        <p id="display"></p>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("DOM is ready!");
+            const button1 = document.getElementById("btn-1");
+            const button2 = document.getElementById("btn-2");
+            const x = document.getElementById("x");
+            const y = document.getElementById("y")
+            const display = document.getElementById("display");
+            let myObj = undefined;
+            button1.addEventListener("click", (e)=>{
+                MyModule()
+                .then(function(Module) {
+                    myObj = new Module.Polyline();
+                    const xs = x.value.split(',');
+                    const ys = y.value.split(',');
+                    for (let i = 0; i < xs.length; i++) {
+                        myObj.addPoint(Number(xs[i]), Number(ys[i]));
+                    }
+                });
+            });
+            button2.addEventListener("click", (e)=>{
+                if (myObj !== undefined) {
+                    display.textContent = "Total length: " + String(myObj.getLength().toFixed(2));
+                }
+            });
+        });
+    </script>
+</body>
+</html>

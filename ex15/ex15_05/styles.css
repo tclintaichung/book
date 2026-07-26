@@ -1,0 +1,36 @@
+body{
+    background-color: rgb(180, 237, 218);
+    font: 1em sans-serif;
+    color: rgb(0, 2, 100);
+    padding: 5px;
+    margin: 2px;
+}
+button{
+    background-color: rgb(241, 247, 160);
+    border-radius: 10px;
+    border: 1px solid rgb(0, 2, 100);
+    color: rgb(0, 2, 100);
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 1px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgb(90, 91, 76);
+    color: white
+}
+input{
+    padding: 5px;
+    border: 1px solid rgb(0, 2, 100);
+    border-radius: 5px;
+}
+p{
+    padding: 5px;
+    border: 1px solid rgb(0, 2, 100);
+    border-radius: 5px; 
+    width: 420px;
+}

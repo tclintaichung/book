@@ -1,0 +1,53 @@
+body {
+  font-family: monospace;
+}
+button {
+  background-color: blue;
+  color: white;
+  width:50px;
+  font-size: large;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border: none;
+  border-radius: 5px;
+  margin: 3px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: black;
+}
+#result {
+  font-size: 1.2em;
+  border: solid;
+  padding: 4px;
+  background-color: green;
+  color:white;
+  border: none;
+  border-radius: 2px;
+  margin: 4px 2px 2px;
+}
+#day {
+  background-color:rgb(107, 107, 253);
+  color: white;
+  border: none;
+  padding: 4px;
+  text-align: center;
+  border-radius: 2px;
+}
+.row {
+  background-color: rgb(241, 241, 141);
+  border: none;
+  border-radius: 5px;
+  width: 50%;
+}
+.keys{
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin: 5px;
+}
+.color-onclick {
+  background-color: red;
+}

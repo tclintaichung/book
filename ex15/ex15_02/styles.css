@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+}
+label {
+    font-weight: bold;
+}
+input {
+    margin-left: 10px;
+}
+#result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: rgb(175, 241, 241);
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #000; 
+}

@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.10)
+project(ex10_01)
+add_executable(${PROJECT_NAME} ex10_01.cpp)
+add_library(mylib SHARED src/coffee.cpp)
+target_link_libraries(${PROJECT_NAME} mylib)
+target_include_directories(${PROJECT_NAME} PRIVATE include)
+target_include_directories(mylib PRIVATE include)

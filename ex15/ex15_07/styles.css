@@ -1,0 +1,31 @@
+body{
+    text-align: center;
+}
+input{
+    margin: 5px;
+    font-size: 1rem;
+    border-radius: 3px;
+}
+button{
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: rgb(137, 244, 137);
+    width: 150px;
+    border-radius: 5px;
+    padding: 5px;
+}
+button:hover{
+    background-color: red;
+}
+div{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    margin: 5px;
+}
+p{
+    background-color: bisque;
+    border-radius: 8px;
+    width: 300px;
+    padding: 10px;
+}

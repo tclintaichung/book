@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Interface</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <h1>GET Food Info / POST User Info</h1>
+  <div>
+    <form>
+      <fieldset>
+        <legend>Food Info</legend>
+        <label for="food">Name:</label>
+        <input type="text" id="food" name="food"><br/>
+        <button id="getFood">GET</button>
+      </fieldset>
+    </form>
+    <form>
+      <fieldset>
+        <legend>User Info</legend>
+        <label for="user">Name:</label>
+        <input type="text" id="user" name="user"><br/>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value=""><br/>
+        <button id="postUser">POST</button>
+      </fieldset>
+    </form>
+  </div>
+  <div><p id="output"></p></div>
+  <script src="index.js"></script>
+</body>
+</html>

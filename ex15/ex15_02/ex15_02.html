@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leap Year Checker</title>
+    <script src="leap.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Leap or Common Year?</h1>
+    <div>
+        <label for="year">Year: </label>
+        <input type="number" id="year" name="year" required>
+    </div>
+    <p id="result"></p>
+
+    <script>
+        Module.onRuntimeInitialized = function () {
+	        console.log('Module is ready');
+        };
+       const year = document.getElementById("year");
+       year.addEventListener("change", function() {
+            const yearValue = parseInt(year.value);
+            const result = document.getElementById("result");
+            if (Module._is_leap_year(yearValue)) {
+                result.textContent = "Leap Year";
+            } else {
+                result.textContent = "Common Year";
+            }
+        });
+    </script>
+</body>
+</html>

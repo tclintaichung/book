@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.10)
+project(ex10_03)
+add_executable(${PROJECT_NAME} ex10_03.cpp)
+add_library(mypolylib STATIC src/polygon.cpp src/polyline.cpp)
+target_link_libraries(${PROJECT_NAME} mypolylib)
+target_include_directories(${PROJECT_NAME} PRIVATE include)
+target_include_directories(mypolylib PRIVATE include)

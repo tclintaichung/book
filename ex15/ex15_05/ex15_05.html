@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./lib/coffee.js" ></script>
+</head>
+<body>
+    <h1>Welcome to My Coffee Shop</h1>
+    <div>
+        <div>
+            Coffee Type:<br/>
+            <input type="radio" id="check1" name="coffee" value="Organic Ethiopia" checked>
+            <label for="check1">Organic Ethiopia</label>
+            <input type="radio" id="check2" name="coffee" value="Vanilla Latte" unchecked>
+            <label for="check2">Vanilla Latte</label>
+            <input type="radio" id="check3" name="coffee" value="Mocha" unchecked>
+            <label for="check3">Mocha</label>
+        </div>
+        <div>
+            Roast Level:<br/>
+            <input type="radio" id="check4" name="roast" value="light" checked>
+            <label for="check4">Light</label>
+            <input type="radio" id="check5" name="roast" value="medium" unchecked>
+            <label for="check5">Medium</label>
+            <input type="radio" id="check6" name="roast" value="dark" unchecked>
+            <label for="check6">Dark</label>
+        </div>
+        <div>
+            Thickness of Milk Foam:<br/>
+            <input type="text" id="foam" name="foam" value="0"> cm
+        </div>
+        <div>
+            Price:<br/>
+            <input type="number" id="price" name="price"> NTD
+        </div>
+    </div>
+    <button id="btn-1">Add Coffee</button>
+    <button id="btn-2">List All Coffee</button>
+    <button id="btn-3">Cancel</button>
+    <div><p id="result"></p></div>
+    <script>
+        const objList = [];
+        const coffee = document.getElementsByName("coffee");
+        const roast = document.getElementsByName("roast");    
+        const price = document.getElementById("price");
+        const foam = document.getElementById("foam");
+        const result = document.getElementById("result");   
+        const button1 = document.getElementById("btn-1");
+        const button2 = document.getElementById("btn-2");
+        const button3 = document.getElementById("btn-3");
+        Module.onRuntimeInitialized = () => {
+            console.log("Module loaded and ready to use.");
+            button1.onclick = () => {
+                let coffeeName = coffee[0].checked ? coffee[0].value : (coffee[1].checked ? coffee[1].value : coffee[2].value);
+                let roastLevel = roast[0].checked ? roast[0].value : (roast[1].checked ? roast[1].value : roast[2].value);
+                let priceValue = parseFloat(price.value);
+                let foamValue = parseFloat(foam.value);
+                if (isNaN(priceValue)) priceValue = 0;  
+                if (isNaN(foamValue)) foamValue = 0;
+                if (coffeeName === "Vanilla Latte") {
+                    const obj = new Module.Latte()(coffeeName, roastLevel, priceValue, foamValue);
+                    console.log(obj.name); 
+                    console.log(obj.roast); 
+                    console.log(obj.price); 
+                    console.log(obj.foam); 
+                    objList.push(obj);
+                    return;
+                }
+                else {
+                    const obj = new Module.Coffee(coffeeName, roastLevel, priceValue);
+                    console.log(obj.name); 
+                    console.log(obj.roast);
+                    console.log(obj.price); 
+                    objList.push(obj);
+                }
+            };
+            button2.onclick = () => {
+                let str = "";
+                objList.forEach((obj, index) => {
+                    if (obj.foam !== undefined)
+                        str += `No.${index + 1} ${obj.name} (${obj.roast}, foam: ${obj.foam}cm) - NT$ ${obj.price}<br>`;
+                    else    
+                        str += `No.${index + 1} ${obj.name} (${obj.roast}) - NT$ ${obj.price}<br>`;
+                });
+                result.innerHTML = str;
+            };  
+            button3.onclick = () => {
+                objList.forEach((obj, index) => {
+                    obj.delete();
+                });
+                result.innerHTML = "";
+                objList.length = 0;
+            }
+        }
+    </script>
+</body>
+</html>

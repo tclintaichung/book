@@ -1,0 +1,16 @@
+{
+  "name": "ex07_03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ex07_03.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}

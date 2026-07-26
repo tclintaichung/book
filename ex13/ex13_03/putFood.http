@@ -1,0 +1,10 @@
+PUT http://127.0.0.1:3000/foods
+Content-Type: application/json
+
+{
+    "_id": "697e850018aea78f43e76716",
+    "name": "eggs",
+    "description": "12",
+    "storagePlace": "refrigerator",
+    "expiryDate": "2026-02-01T00:00:00.000Z"
+}

@@ -1,0 +1,41 @@
+h1 {
+  color: purple;
+  text-align: center;
+  text-shadow: 2px 2px 4px gray;
+}
+.row {
+  display: flex;
+  justify-content: center;
+}
+.seat {
+  width: 40px;
+  padding: 3px;
+  margin: 2px;
+  border: 1px solid rgb(30, 30, 63);
+  border-radius: 2px;
+  text-align: center;
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+}
+#booking-status {
+  width: 500px;
+  padding: 3px;
+  margin: 2px;
+  border: 1px solid rgb(30, 30, 63);
+  border-radius: 2px;
+  background-color: green;
+  color: white;
+}
+#reset-btn {
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-size: 16px;
+  background-color: rgb(253, 216, 148);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#reset-btn:hover {
+  background-color: darkorange;
+}

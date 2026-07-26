@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Maintain</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="create.html">New Inventory</a>
+    <a href="maintain.html">Inventory Maintenance</a>
+    <a href="about.html">About</a>
+  </nav>
+  <h1>Food or drink will be checked, updated, or removed</h1>
+  <ol class="maintain-ol">
+    <li>Food or drink of inventory can be modified accordingly after giving some corrections.</li>
+    <li>Food or drink should be removed if it is beyond the <strong style="color: red;">expiry-date.</strong></li>
+  </ol> 
+  <ul class="maintain-ul">
+    <li>
+      Give food or drink name and click <strong>"Search"</strong> button to check the status<br />
+    </li>
+    <li>
+    If no food name provided and click <strong>"Search"</strong> button, the system will show information of all food and drink<br />
+    </li>
+    <li>
+    After clicking <strong>"Search"</strong> button, then click item in the list below, the information of selected item will show on each text box<br />
+    </li>
+    <li>
+    You may change content on each box after selecting item on list, then click <strong>"Update"</strong> to modify inventory
+    </li>
+    <li>
+    If click <strong>"Delete" </strong> button, the selected food or drink will be removed from Inventory
+    </li>
+  </ul>
+  <div class="maintain-div">
+    <div>
+      <label for="search-name">Food/drink Name:</label>
+      <input type="text" id="search-name" name="search-name"  />
+    </div>
+    <div>
+      <label for="new-description">Description:</label><br />
+      <textarea id="new-description" name="new-description"></textarea>
+    </div>
+    <div>
+      <label for="new-date">Expiry Date:</label>
+      <input type="date" id="new-date" name="name"  />
+    </div>
+    <div>
+      Storage Place:
+      <input type ="radio" id="new-pantry" name="new-place" value="pantry"/>
+      <label for="new-pantry" >pantry</label>
+      <input type ="radio" id="new-refrigerator" name="new-place" checked value="refrigerator" />
+      <label for="new-refrigerator">refrigerator</label>
+    </div>
+  </div>       
+  <div class="maintain-div">
+    <div>
+      <button type="submit" id="search-button" class="maintain">Search</button>
+    </div>
+    <div>
+      <button type="submit" id="update-button" class="maintain">Update</button>
+    </div>
+    <div>
+      <button type="submit" id="delete-button" class="maintain">Delete</button>
+    </div>
+  </div>
+  <ul id="maintain-result"></ul>
+  <div id="maintain-output"></div>
+  <script src="ex13.04.js"></script>
+</body>
+</html>

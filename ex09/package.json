@@ -1,0 +1,16 @@
+{
+  "name": "ex09",
+  "version": "1.0.0",
+  "main": "ex9_01.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}

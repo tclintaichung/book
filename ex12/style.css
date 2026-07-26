@@ -1,0 +1,20 @@
+h1 {
+  color: red;
+  position: relative;
+  top: 50px;
+}
+div {
+  position: relative;
+  left: 200px;
+  top: 100px;
+}
+div h1, div h2 {
+  color: blue;
+}
+h2 {
+  color: green;
+  position: relative;
+  left: 200px;
+  top: 200px;
+  font-family:'Courier New', Courier, monospace;
+}

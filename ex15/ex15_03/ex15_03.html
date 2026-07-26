@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 	<meta charset="UTF-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 	<title>Application of Emscripten</title>
+ 	<link rel="stylesheet" href="styles.css">
+ 	<script src="factorial.js">	</script>
+</head>
+<body>
+ 	<h1>Compute n!/Fibonacci Sequence</h1>
+ 	<label for="num">n:</label>
+ 	<input type="text" id="num" value="5"><br/>
+ 	<button id="btn-1" onclick="compute(1)">Factorial (n!)</button>
+ 	<button id="btn-2" onclick="compute(2)">Fibonacci Sequence</button>
+ 	<button id="btn-3" onclick="compute(3)">Golden Ratio</button>
+ 	<p>Result: <span id="result">?</span></p>
+ 	<script>
+		let output = undefined;
+		window.onload = function() {
+			output = document.getElementById("result");
+			output.textContent = "";
+			Module.onRuntimeInitialized = function () {
+				output.textContent = 'Module is ready!';
+			}
+		}
+		function compute(method) {	
+			let n = parseInt(document.getElementById("num").value);
+			let result;
+			if (method == 1)
+				result = Module._factorial(n);	
+			else if (method == 2) {
+				const ptr = Module._fibonacci_seq(n);
+				result = Module.UTF8ToString(ptr);
+			}
+			else if (method == 3) {
+				let fib_n1 = Module._fibonacci_num(n - 1);
+				let fib_n2 = Module._fibonacci_num(n);
+				result = (fib_n2 / fib_n1).toFixed(3);
+			}
+			output.textContent = result;
+  		}  
+ 	</script>
+</body>
+</html>

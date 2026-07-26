@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Position Example</title>
+  <style>
+    .static-box {
+      position: static;
+      background: #e0e0e0;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .relative-box {
+      position: relative;
+      left: 300px;
+      top: 0px;
+      background: #b3c6ff;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .absolute-box {
+      position: absolute;
+      left: 50px;
+      top: 0px;
+      background: #ffd699;
+      padding: 10px;
+    }
+    .fixed-box {
+      position: fixed;
+      right: 10px;
+      bottom: 10px;
+      background: #ffb3b3;
+      padding: 10px;
+    }
+    .container {
+      position: relative;
+      height: 250px;
+      border: 1px solid #aaa;
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h2>CSS Position Property Demo</h2>
+  <div class="static-box">Static Position (default)</div>
+  <div class="relative-box">Relative Position (left: 30px, top: 10px)</div>
+  <div class="container">
+    <div class="absolute-box">Absolute Position (left: 50px, top: 120px)</div>
+  </div>
+  <div class="fixed-box">Fixed Position (right: 10px, bottom: 10px)</div>
+</body>
+</html>

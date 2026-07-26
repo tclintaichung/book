@@ -1,0 +1,9 @@
+POST http://127.0.0.1:3000/foods
+Content-Type: application/json
+
+{
+  	"name": "pork",
+  	"description": "1 kg",
+  	"storagePlace": "refrigerator",
+ 	"expiryDate": "2025-12-26T00:00:00.000Z"
+}

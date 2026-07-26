@@ -1,0 +1,10 @@
+* {
+  margin: 5px;
+  padding: 10px;
+
+}
+label {
+  font: sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
