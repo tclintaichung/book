@@ -61,7 +61,7 @@
                 if (isNaN(priceValue)) priceValue = 0;  
                 if (isNaN(foamValue)) foamValue = 0;
                 if (coffeeName === "Vanilla Latte") {
-                    const obj = new Module.Latte()(coffeeName, roastLevel, priceValue, foamValue);
+                    const obj = new Module.Latte(coffeeName, roastLevel, priceValue, foamValue);
                     console.log(obj.name); 
                     console.log(obj.roast); 
                     console.log(obj.price); 
